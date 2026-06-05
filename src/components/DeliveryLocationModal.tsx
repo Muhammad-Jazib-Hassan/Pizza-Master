@@ -239,6 +239,7 @@ export const DeliveryLocationModal: React.FC<DeliveryLocationModalProps> = ({ is
             <span>{isSaved ? 'LOCATION SAVED ✓' : 'SAVE LOCATION'}</span>
           </button>
         </form>
+        </div>
 
         {/* Promo support badges at the bottom of the dialog */}
         <div className="border-t border-neutral-900/80 pt-4 mt-6 flex items-center justify-between">
@@ -259,8 +260,6 @@ export const DeliveryLocationModal: React.FC<DeliveryLocationModalProps> = ({ is
             <span className="text-[10px] text-neutral-500 font-bold uppercase tracking-wider">DELIVERY</span>
           </div>
         </div>
-
-      </div>
 
       </div>
     </div>
