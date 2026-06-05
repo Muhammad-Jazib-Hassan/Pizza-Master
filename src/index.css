@@ -1,0 +1,346 @@
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600;700&family=Oswald:wght@400;500;600;700;800&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Inter", ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+  --font-display: "Bebas Neue", sans-serif;
+  --font-oswald: "Oswald", sans-serif;
+}
+
+/* Custom Light Theme Rules (Activated via .theme-light container) */
+
+/* Core page & layout backgrounds */
+.theme-light {
+  background-color: #f7f6f2 !important;
+  color: #17181c !important;
+}
+
+.theme-light header {
+  background-color: rgba(255, 255, 255, 0.96) !important;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.08) !important;
+}
+
+.theme-light header a, 
+.theme-light header span, 
+.theme-light header button {
+  color: #1a1a24 !important;
+}
+
+.theme-light header #city-select-btn,
+.theme-light header #area-select-btn {
+  color: #111118 !important;
+}
+
+.theme-light header #toggle-delivery, 
+.theme-light header #toggle-pickup {
+  color: #4b5563 !important;
+}
+
+.theme-light header #toggle-delivery.bg-red-600 {
+  background-color: #dc2626 !important;
+  color: white !important;
+}
+
+.theme-light header #toggle-pickup.bg-yellow-500 {
+  background-color: #eab308 !important;
+  color: #0c0d12 !important;
+}
+
+/* Sidebar Nav Light Mode */
+.theme-light aside {
+  background-color: #ffffff !important;
+  border-right: 1px solid rgba(0, 0, 0, 0.08) !important;
+}
+
+.theme-light aside button {
+  background-color: #fcfbfa !important;
+  border: 1px solid rgba(0, 0, 0, 0.06) !important;
+  color: #374151 !important;
+}
+
+.theme-light aside button:hover {
+  background-color: #f3f2eb !important;
+  border-color: rgba(0, 0, 0, 0.12) !important;
+  color: #111118 !important;
+}
+
+/* Back to Top active */
+.theme-light aside #sidebar-home-btn.bg-yellow-500 {
+  background-color: #eab308 !important;
+  color: #0c0d12 !important;
+  font-weight: 700 !important;
+}
+
+.theme-light aside .text-neutral-400 {
+  color: #374151 !important;
+}
+
+/* Help line card */
+.theme-light aside div.bg-neutral-950 {
+  background-color: #fcfbf9 !important;
+  border-color: rgba(0, 0, 0, 0.08) !important;
+}
+
+.theme-light aside div.bg-neutral-950 a {
+  color: #111118 !important;
+}
+
+/* Category menu navigation bar */
+.theme-light #category-navigation-bar {
+  background-color: #ffffff !important;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.08) !important;
+}
+
+.theme-light #category-navigation-bar button {
+  background-color: #f7f6f2 !important;
+  border: 1px solid rgba(0, 0, 0, 0.06) !important;
+  color: #4b5563 !important;
+}
+
+.theme-light #category-navigation-bar button:hover {
+  color: #111118 !important;
+  background-color: #eae8e2 !important;
+}
+
+.theme-light #category-navigation-bar button.bg-red-600 {
+  background-color: #dc2626 !important;
+  border-color: #b91c1c !important;
+  color: white !important;
+}
+
+/* Category section titles & labels */
+.theme-light main section h2, 
+.theme-light .grid section h2,
+.theme-light h2,
+.theme-light h3,
+.theme-light h4 {
+  color: #111118 !important;
+}
+
+/* Menu items */
+.theme-light div[id^="menu-item-"] {
+  background-color: #ffffff !important;
+  border: 1px solid rgba(0, 0, 0, 0.07) !important;
+  box-shadow: 0 4px 18px -2px rgba(0, 0, 0, 0.03) !important;
+}
+
+.theme-light div[id^="menu-item-"]:hover {
+  border-color: rgba(220, 38, 38, 0.2) !important;
+  box-shadow: 0 10px 25px -4px rgba(220, 38, 38, 0.08) !important;
+}
+
+.theme-light div[id^="menu-item-"] h3 {
+  color: #111118 !important;
+}
+
+.theme-light div[id^="menu-item-"] p {
+  color: #4b5563 !important;
+}
+
+.theme-light div[id^="menu-item-"] span.text-white {
+  color: #17181c !important;
+}
+
+.theme-light div[id^="menu-item-"] button.bg-neutral-800 {
+  background-color: #f3f2eb !important;
+  border-color: rgba(0, 0, 0, 0.08) !important;
+  color: #dc2626 !important;
+}
+
+.theme-light div[id^="menu-item-"] button.bg-neutral-800:hover {
+  background-color: #dc2626 !important;
+  color: white !important;
+  border-color: #dc2626 !important;
+}
+
+/* Customizer & Modals inside light layout */
+.theme-light div.fixed.z-50 {
+  color: #111118 !important;
+}
+
+.theme-light div.fixed.z-50 [onClick*="stopPropagation"],
+.theme-light div.fixed.z-50 .bg-neutral-900,
+.theme-light div.fixed.z-55 .bg-neutral-900 {
+  background-color: #ffffff !important;
+  color: #111118 !important;
+}
+
+.theme-light .bg-neutral-900,
+.theme-light .bg-neutral-950\/40,
+.theme-light .bg-black\/50,
+.theme-light .bg-neutral-950\/60 {
+  background-color: #ffffff !important;
+  color: #111118 !important;
+  border-color: rgba(0, 0, 0, 0.08) !important;
+}
+
+/* Coupon lists */
+.theme-light .bg-neutral-950 {
+  background-color: #fcfbfa !important;
+  color: #111118 !important;
+}
+
+/* Protect Hero banner section styles in light theme */
+.theme-light #hero-banner-section {
+  background-color: #07080b !important;
+  color: #f3f4f6 !important;
+  border-bottom-color: #171822 !important;
+}
+
+.theme-light #hero-banner-section h1 {
+  color: #ffffff !important;
+}
+
+.theme-light #hero-banner-section h2 {
+  color: #fbbf24 !important;
+}
+
+.theme-light #hero-banner-section p {
+  color: #d1d5db !important;
+}
+
+.theme-light #hero-banner-section span {
+  color: inherit !important;
+}
+
+.theme-light #hero-banner-section .text-red-500 { color: #f87171 !important; }
+.theme-light #hero-banner-section .text-yellow-500 { color: #fbbf24 !important; }
+.theme-light #hero-banner-section .text-orange-500 { color: #fb923c !important; }
+.theme-light #hero-banner-section .text-red-400 { color: #f87171 !important; }
+.theme-light #hero-banner-section .text-yellow-400 { color: #fbbf24 !important; }
+.theme-light #hero-banner-section .text-orange-400 { color: #fb923c !important; }
+
+/* Banner container adjustments */
+.theme-light .bg-[#0b0c10], 
+.theme-light .bg-[#010204], 
+.theme-light .bg-[#0a0a0f] {
+  background-color: #f7f6f2 !important;
+}
+
+.theme-light .text-neutral-400 {
+  color: #4b5563 !important;
+}
+
+.theme-light .text-neutral-300 {
+  color: #374151 !important;
+}
+
+.theme-light .text-neutral-500 {
+  color: #6b7280 !important;
+}
+
+.theme-light .border-neutral-800,
+.theme-light .border-neutral-900 {
+  border-color: rgba(0, 0, 0, 0.08) !important;
+}
+
+.theme-light #app-footer {
+  background-color: #ffffff !important;
+  border-top: 1px solid rgba(0, 0, 0, 0.08) !important;
+  color: #111118 !important;
+}
+
+.theme-light #app-footer h4 {
+  color: #111118 !important;
+}
+
+.theme-light #app-footer p, 
+.theme-light #app-footer a {
+  color: #4b5563 !important;
+}
+
+.theme-light #app-footer a:hover {
+  color: #dc2626 !important;
+}
+
+.theme-light #scroll-to-top-btn {
+  background-color: #ffffff !important;
+  border-color: rgba(0, 0, 0, 0.08) !important;
+  color: #111118 !important;
+}
+
+.theme-light #checkout-panel {
+  background-color: #ffffff !important;
+}
+
+.theme-light #cart-drawer-panel {
+  background-color: #ffffff !important;
+}
+
+/* Sleek custom scrollbars built for elegant dark and light transitions */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: #07080b;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.12);
+  border-radius: 9999px;
+  transition: background 0.3s ease;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #dc2626;
+}
+
+/* Light Theme sleek scrollbar adaptation */
+.theme-light ::-webkit-scrollbar-track,
+.theme-light::-webkit-scrollbar-track {
+  background: #f7f6f2 !important;
+}
+
+.theme-light ::-webkit-scrollbar-thumb,
+.theme-light::-webkit-scrollbar-thumb {
+  background: rgba(0, 0, 0, 0.15) !important;
+  border-radius: 9999px !important;
+}
+
+.theme-light ::-webkit-scrollbar-thumb:hover,
+.theme-light::-webkit-scrollbar-thumb:hover {
+  background: #dc2626 !important;
+}
+
+/* Fallback for firefox */
+* {
+  scrollbar-width: thin;
+}
+
+/* Helper classes to completely hide scrollbars but keep scroll/swipe functionality */
+.no-scrollbar::-webkit-scrollbar,
+.scrollbar-none::-webkit-scrollbar {
+  display: none !important;
+}
+
+.no-scrollbar,
+.scrollbar-none {
+  -ms-overflow-style: none !important;  /* IE and Edge */
+  scrollbar-width: none !important;  /* Firefox */
+}
+
+/* Guarantee scrollbar visibility is hidden with ultra specificity */
+#desktop-sidebar-nav,
+#desktop-sidebar-nav *,
+#category-navigation-bar,
+#category-navigation-bar *,
+.no-scrollbar,
+.scrollbar-none {
+  scrollbar-width: none !important;
+  -ms-overflow-style: none !important;
+}
+
+#desktop-sidebar-nav::-webkit-scrollbar,
+#desktop-sidebar-nav *::-webkit-scrollbar,
+#category-navigation-bar::-webkit-scrollbar,
+#category-navigation-bar *::-webkit-scrollbar,
+.no-scrollbar::-webkit-scrollbar,
+.scrollbar-none::-webkit-scrollbar {
+  display: none !important;
+  width: 0 !important;
+  height: 0 !important;
+}
+

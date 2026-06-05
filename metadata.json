@@ -1,0 +1,6 @@
+{
+  "name": "The Pizza Master Pakistan",
+  "description": "Premium Pizza Master replica featuring visual pizza dynamic customizers, category scroll-spy, slide-out cart, custom deals, and an animated progress delivery tracker.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
