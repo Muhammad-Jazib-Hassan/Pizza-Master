@@ -13,6 +13,8 @@ import { OrderTracker } from './components/OrderTracker';
 import { Sparkles, Pizza, Flame, Store, Truck, Navigation, ChevronUp, Gift, User, Award, Percent, ClipboardCheck, Sparkle, LogOut, CheckCircle } from 'lucide-react';
 import { PizzaMasterLogo } from './components/PizzaMasterLogo';
 import { SidebarNav } from './components/SidebarNav';
+import { DeliveryLocationModal } from './components/DeliveryLocationModal';
+import { MobileBottomNav } from './components/MobileBottomNav';
 
 function PizzaMasterMain() {
   const { cart, activeOrder, applyPromoCode, promoCode } = useCart();
@@ -24,6 +26,7 @@ function PizzaMasterMain() {
 
   // Loading Screen Animation State
   const [appLoading, setAppLoading] = useState(true);
+  const [isLocationModalOpen, setIsLocationModalOpen] = useState(false);
 
   // High-fidelity sidebar modal states
   const [isPromoModalOpen, setIsPromoModalOpen] = useState(false);
@@ -37,6 +40,7 @@ function PizzaMasterMain() {
   useEffect(() => {
     const timer = setTimeout(() => {
       setAppLoading(false);
+      setIsLocationModalOpen(true);
     }, 1800);
     return () => clearTimeout(timer);
   }, []);
@@ -141,6 +145,15 @@ function PizzaMasterMain() {
     dips: MENU_ITEMS.filter((item) => item.category === 'dips'),
   };
 
+  const isAnyOverlayActive =
+    isCartOpen ||
+    isCheckoutOpen ||
+    isTrackerOpen ||
+    isPromoModalOpen ||
+    isUserModalOpen ||
+    customizingItem !== null ||
+    isLocationModalOpen;
+
   return (
     <div className={`min-h-screen ${isAmbientActive ? 'theme-dark' : 'theme-light'} bg-[#07080b] text-neutral-100 flex font-sans antialiased text-sm transition-all duration-500 overflow-x-hidden ${isAmbientActive ? 'shadow-[inset_24px_0_80px_rgba(234,179,8,0.02)]' : ''}`}>
       
@@ -150,16 +163,7 @@ function PizzaMasterMain() {
         onCategorySelect={handleCategoryNav}
         onTrackerToggle={() => setIsTrackerOpen(true)}
         onPromoClick={() => setIsPromoModalOpen(true)}
-        onLocationClick={() => {
-          // Scroll dynamically to active supporting branch address details
-          const footerLogo = document.getElementById('scroll-to-top-btn');
-          if (footerLogo) {
-            window.scrollTo({ top: document.body.scrollHeight, behavior: 'smooth' });
-          } else {
-            const bottomLoc = document.getElementById('category-dips');
-            if (bottomLoc) bottomLoc.scrollIntoView({ behavior: 'smooth' });
-          }
-        }}
+        onLocationClick={() => setIsLocationModalOpen(true)}
         onUserClick={() => setIsUserModalOpen(true)}
         onAmbientToggle={() => setIsAmbientActive(!isAmbientActive)}
         isAmbientActive={isAmbientActive}
@@ -187,7 +191,7 @@ function PizzaMasterMain() {
         <CategoryBar activeCategory={activeCategory} onCategoryClick={handleCategoryNav} />
 
         {/* 4. Core Grid Menu layout */}
-        <main className="max-w-7xl mx-auto px-4 lg:px-6 py-10 flex-1 space-y-16">
+        <main className="max-w-7xl mx-auto px-4 lg:px-6 pt-10 pb-28 md:pb-10 flex-1 space-y-16">
           
           {/* Category Blocks */}
           {Object.entries(groupedMenu).map(([categoryKey, items]) => {
@@ -341,6 +345,20 @@ function PizzaMasterMain() {
 
       {/* 9. Live simulated progress Order tracker dashboard */}
       <OrderTracker isOpen={isTrackerOpen} onClose={() => setIsTrackerOpen(false)} />
+
+      {/* Delivery location selector dialog shown automatically after page finishes loading */}
+      <DeliveryLocationModal isOpen={isLocationModalOpen} onClose={() => setIsLocationModalOpen(false)} />
+
+      {/* High-fidelity mobile floating action navigation bar */}
+      {!isAnyOverlayActive && (
+        <MobileBottomNav
+          activeCategory={activeCategory}
+          onCategorySelect={handleCategoryNav}
+          onCartToggle={() => setIsCartOpen(!isCartOpen)}
+          onPromoClick={() => setIsPromoModalOpen(true)}
+          onLocationClick={() => setIsLocationModalOpen(true)}
+        />
+      )}
 
 
       {/* ========================================================== */}
